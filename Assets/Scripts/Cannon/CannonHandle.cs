@@ -8,6 +8,7 @@ public class CannonHandle : MonoBehaviour {
 	private Vector3 lastGrabPos;
 	// Use this for initialization
 	void Start () {
+		// Get Parent Cannon Script
 		cannonScript = transform.parent.parent.gameObject.GetComponent<Cannon>();
 	}
 	
@@ -23,8 +24,9 @@ public class CannonHandle : MonoBehaviour {
 			if (other.gameObject.GetComponent<HandInteractor>().IsGrabbing) {
 
 				Vector3 currentGrabPos = other.gameObject.transform.position ;
-				cannonScript.MoveCannonFromGrabIncrement(lastGrabPos, currentGrabPos);
-				lastGrabPos = currentGrabPos;
+				Vector3 handleCenter = transform.position;
+				cannonScript.MoveCannon(currentGrabPos, handleCenter);
+				Debug.DrawLine(currentGrabPos, handleCenter, Color.red);
 
 			}
 
