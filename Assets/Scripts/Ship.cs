@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class Ship : MonoBehaviour {
 
-	private float speed = 1.0f;
+	private Rigidbody shipRigidBody;
+	public float forwardForce;
+	public float oscillationAmp;
+	public float oscillationFreq;
+	private Rigidbody wheelRigidBody;
+	public float wheelMultiplier;
 
 	// Use this for initialization
 	void Start () {
-		
+		wheelRigidBody = transform.Find("Ship Wheel").
+				transform.Find("Wheel").GetComponent<Rigidbody>();
+		shipRigidBody = GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
@@ -18,6 +25,14 @@ public class Ship : MonoBehaviour {
 
 	void FixedUpdate() {
 		// Y axis (vertical) oscillation because of ocean waves
-		//this.MovePosition.Translate(new Vector3(0, 1.0f, 0) * Mathf.Sin(Mathf.PI * Time.deltaTime));	
+		transform.Translate( Vector3.up
+				* oscillationAmp * Mathf.Sin(2*Mathf.PI*oscillationFreq*Time.time) );
+		// Constant forward force
+		shipRigidBody.AddForce(forwardForce * transform.forward);
+		// Get wheel rotation speed
+		float angVelocity = wheelRigidBody.angularVelocity.z;
+		//	print(angVelocity);
+		// Apply torque to boat
+		shipRigidBody.AddTorque(angVelocity * wheelMultiplier * transform.up);
 	}
 }
