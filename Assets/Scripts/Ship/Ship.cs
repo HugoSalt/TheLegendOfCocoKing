@@ -9,7 +9,7 @@ public class Ship : MonoBehaviour {
 	public float oscillationAmp;
 	public float oscillationFreq;
 	private Rigidbody wheelRigidBody;
-	public float wheelMultiplier;
+	public float turnMultiplier;
 
 	// Use this for initialization
 	void Start () {
@@ -29,10 +29,9 @@ public class Ship : MonoBehaviour {
 				* oscillationAmp * Mathf.Sin(2*Mathf.PI*oscillationFreq*Time.time) );
 		// Constant forward force
 		shipRigidBody.AddForce(forwardForce * transform.forward);
-		// Get wheel rotation speed
-		float angVelocity = wheelRigidBody.angularVelocity.z;
-		//	print(angVelocity);
-		// Apply torque to boat
-		shipRigidBody.AddTorque(angVelocity * wheelMultiplier * transform.up);
-	}
+        // Get wheel rotation speed
+        float angVelocity = Vector3.Dot(wheelRigidBody.angularVelocity, transform.forward);
+        // Apply torque to boat
+        shipRigidBody.AddTorque(angVelocity * turnMultiplier * transform.up);
+    }
 }

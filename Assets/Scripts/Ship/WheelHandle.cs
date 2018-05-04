@@ -27,7 +27,7 @@ public class WheelHandle : MonoBehaviour {
 				Vector3 handleCenter = transform.position;
 				// Apply Force on wheel (ship will read on its own
 				// the wheel's torque velocity)
-				wheelRigidBody.AddForceAtPosition(handleCenter,(handleCenter-currentGrabPos)*wheelGrabForceMultiply);
+				wheelRigidBody.AddForceAtPosition((currentGrabPos-handleCenter)*wheelGrabForceMultiply, handleCenter);
 				Debug.DrawLine(currentGrabPos, handleCenter, Color.red);
 
 			}
