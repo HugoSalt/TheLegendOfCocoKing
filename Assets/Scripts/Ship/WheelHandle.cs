@@ -18,8 +18,8 @@ public class WheelHandle : MonoBehaviour {
 	}
 
 	private void OnTriggerStay(Collider other) {
-		print("heloo");
-		if (other.gameObject.tag == "HandManipulator"){
+		
+		if (other.gameObject.tag == "HAND_INTERACTOR"){
 
 			if (other.gameObject.GetComponent<HandInteractor>().IsGrabbing) {
 

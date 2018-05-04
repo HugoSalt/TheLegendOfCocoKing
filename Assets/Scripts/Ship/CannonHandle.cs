@@ -19,7 +19,7 @@ public class CannonHandle : MonoBehaviour {
 
 	private void OnTriggerStay(Collider other) {
 
-		if (other.gameObject.tag == "HandManipulator"){
+		if (other.gameObject.tag == "HAND_INTERACTOR"){
 
 			if (other.gameObject.GetComponent<HandInteractor>().IsGrabbing) {
 
