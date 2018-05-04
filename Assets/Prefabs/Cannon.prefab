@@ -1057,7 +1057,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 14
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!65 &65114944660390384
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1156,7 +1156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93255bbe9f950a94cb7531b57c4832ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabMultiplier: 40
+  grabMultiplier: 150
   cannonBall: {fileID: 54552297263160440, guid: 885fe26dc60eedb41a5dd2bf19f54069,
     type: 2}
   cannonBallFireSpeed: 40
