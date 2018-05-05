@@ -11,16 +11,16 @@ public class Cannon : MonoBehaviour
 	private float lastFireTime;
     public Rigidbody cannonBall;
     public float cannonBallFireSpeed;
-    private ParticleSystem wickFire;
-    private ParticleSystem cannonFire;
+    private ParticleSystem wickFireParticles;
+    private ParticleSystem cannonFireParticles;
     // Use this for initialization
     void Start()
     {
         rightWheel = transform.Find("Cannon Meshes").Find("wheel_right").gameObject;
         leftWheel = transform.Find("Cannon Meshes").Find("wheel_left").gameObject;
 		lastFireTime = 0.0f;
-        wickFire = transform.Find("Wick Fire").gameObject.GetComponent<ParticleSystem>();
-        cannonFire = transform.Find("Cannon Fire").gameObject.GetComponent<ParticleSystem>();
+        wickFireParticles = transform.Find("Wick Fire").gameObject.GetComponent<ParticleSystem>();
+        cannonFireParticles = transform.Find("Cannon Fire").gameObject.GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -45,7 +45,7 @@ public class Cannon : MonoBehaviour
 		// Check at least 2 sec elapsed since last fire
 		if (Time.time - lastFireTime > 2) {
 			lastFireTime = Time.time;
-			wickFire.Play();
+			wickFireParticles.Play();
         	// Wait 2sec and fire canonball
         	StartCoroutine(throwCannonBall());
 		}
@@ -54,9 +54,12 @@ public class Cannon : MonoBehaviour
     IEnumerator throwCannonBall()
     {
 		yield return new WaitForSeconds(2);
-        cannonFire.Play();
+        cannonFireParticles.Play();
         Rigidbody cannonBallClone = (Rigidbody) Instantiate(cannonBall, 
                                transform.TransformPoint(new Vector3(0,1,6)), transform.rotation);
         cannonBallClone.velocity = transform.forward * cannonBallFireSpeed;
+        // After 6sec destroy the cannonball
+        yield return new WaitForSeconds(6);
+        Destroy(cannonBallClone.gameObject);
     }
 }
