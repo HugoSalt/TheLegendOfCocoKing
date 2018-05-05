@@ -13,6 +13,8 @@ public class Cannon : MonoBehaviour
     public float cannonBallFireSpeed;
     private ParticleSystem wickFireParticles;
     private ParticleSystem cannonFireParticles;
+    private AudioSource cannonSound;
+    private AudioSource wickSound;
     // Use this for initialization
     void Start()
     {
@@ -21,6 +23,8 @@ public class Cannon : MonoBehaviour
 		lastFireTime = 0.0f;
         wickFireParticles = transform.Find("Wick Fire").gameObject.GetComponent<ParticleSystem>();
         cannonFireParticles = transform.Find("Cannon Fire").gameObject.GetComponent<ParticleSystem>();
+        cannonSound = GetComponents<AudioSource>()[0];
+        wickSound = GetComponents<AudioSource>()[1];
     }
 
     // Update is called once per frame
@@ -46,7 +50,8 @@ public class Cannon : MonoBehaviour
 		if (Time.time - lastFireTime > 2) {
 			lastFireTime = Time.time;
 			wickFireParticles.Play();
-        	// Wait 2sec and fire canonball
+            wickSound.Play();
+        	// Fire canonball
         	StartCoroutine(throwCannonBall());
 		}
     }
@@ -55,6 +60,8 @@ public class Cannon : MonoBehaviour
     {
 		yield return new WaitForSeconds(2);
         cannonFireParticles.Play();
+        cannonSound.Play();
+        wickSound.Stop();
         Rigidbody cannonBallClone = (Rigidbody) Instantiate(cannonBall, 
                                transform.TransformPoint(new Vector3(0,1,6)), transform.rotation);
         cannonBallClone.velocity = transform.forward * cannonBallFireSpeed;
