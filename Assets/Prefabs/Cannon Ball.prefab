@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23175147475624902}
   - component: {fileID: 54552297263160440}
   - component: {fileID: 135164625115615510}
+  - component: {fileID: 114481712726779330}
   m_Layer: 0
   m_Name: Cannon Ball
   m_TagString: DEADLY_COLLIDER
@@ -100,6 +101,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114481712726779330
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1314763094180932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 533c0b57c5673574596ad033056a0cc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splashEffect: {fileID: 1687118924408352, guid: 77c69ec12208c4c4380d15e30b6f8f68,
+    type: 2}
 --- !u!135 &135164625115615510
 SphereCollider:
   m_ObjectHideFlags: 1

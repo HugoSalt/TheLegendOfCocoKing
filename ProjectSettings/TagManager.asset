@@ -6,6 +6,7 @@ TagManager:
   tags:
   - HAND_INTERACTOR
   - DEADLY_COLLIDER
+  - OCEAN_COLLIDER
   layers:
   - Default
   - TransparentFX
