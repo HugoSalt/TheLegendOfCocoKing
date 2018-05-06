@@ -5661,7 +5661,7 @@ GameObject:
   - component: {fileID: 916639235}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: MYSHIP_COLLIDER
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5673,8 +5673,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 916639233}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.829, z: 1.9171}
-  m_LocalScale: {x: 3.0151021, y: 1.664196, z: 0.70977956}
+  m_LocalPosition: {x: 0, y: -0.4, z: 1.9171}
+  m_LocalScale: {x: 3.0151021, y: 0.8034568, z: 0.70977956}
   m_Children: []
   m_Father: {fileID: 710521767}
   m_RootOrder: 1
@@ -6167,7 +6167,7 @@ GameObject:
   - component: {fileID: 1057441966}
   m_Layer: 0
   m_Name: Cube (2)
-  m_TagString: Untagged
+  m_TagString: MYSHIP_COLLIDER
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6179,8 +6179,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1057441964}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.734, z: 2.609}
-  m_LocalScale: {x: 1.9371927, y: 1.4745255, z: 0.70977956}
+  m_LocalPosition: {x: 0, y: -0.4, z: 2.609}
+  m_LocalScale: {x: 1.9371927, y: 0.8034568, z: 0.70977956}
   m_Children: []
   m_Father: {fileID: 710521767}
   m_RootOrder: 2
@@ -6805,7 +6805,7 @@ GameObject:
   - component: {fileID: 1258739464}
   m_Layer: 0
   m_Name: Cube (3)
-  m_TagString: Untagged
+  m_TagString: MYSHIP_COLLIDER
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8154,7 +8154,7 @@ GameObject:
   - component: {fileID: 1461383334}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: MYSHIP_COLLIDER
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8166,8 +8166,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1461383332}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.065, z: -1.875}
-  m_LocalScale: {x: 4.1443167, y: 2.1362238, z: 6.931001}
+  m_LocalPosition: {x: 0, y: -0.4, z: -1.875}
+  m_LocalScale: {x: 4.1443167, y: 0.8034568, z: 6.931008}
   m_Children: []
   m_Father: {fileID: 710521767}
   m_RootOrder: 0
@@ -10405,7 +10405,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1836913872}
-  - component: {fileID: 1836913871}
   m_Layer: 0
   m_Name: Ocean
   m_TagString: Untagged
@@ -10413,17 +10412,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1836913871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1836913870}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 178866bcb2de44e4c8a24eaeb355da95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1836913872
 Transform:
   m_ObjectHideFlags: 0
