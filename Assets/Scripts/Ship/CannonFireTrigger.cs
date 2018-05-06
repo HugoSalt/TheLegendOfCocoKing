@@ -21,7 +21,7 @@ public class CannonFireTrigger : MonoBehaviour {
 		
 		if (other.gameObject.tag == "HAND_INTERACTOR"){
 
-			if (other.gameObject.GetComponent<HandInteractor>().IsGrabbing) {
+			if (other.gameObject.GetComponent<HandInteractor>().IsGrabbing()) {
 				
 				cannonScript.Fire();
 			

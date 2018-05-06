@@ -21,7 +21,7 @@ public class CannonHandle : MonoBehaviour {
 
 		if (other.gameObject.tag == "HAND_INTERACTOR"){
 
-			if (other.gameObject.GetComponent<HandInteractor>().IsGrabbing) {
+			if (other.gameObject.GetComponent<HandInteractor>().IsGrabbing()) {
 
 				Vector3 currentGrabPos = other.gameObject.transform.position ;
 				Vector3 handleCenter = transform.position;

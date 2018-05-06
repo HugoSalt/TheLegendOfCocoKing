@@ -22,11 +22,11 @@ public class HandController : MonoBehaviour {
 	}
 
     void TriggerClick(object sender, ClickedEventArgs e) {
-        handInteractorScript.IsGrabbing = true;
+        handInteractorScript.setGrab(true);
     }
 
     void TriggerUnclick(object sender, ClickedEventArgs e)
     {
-        handInteractorScript.IsGrabbing = false;
+        handInteractorScript.setGrab(false);
     }
 }
