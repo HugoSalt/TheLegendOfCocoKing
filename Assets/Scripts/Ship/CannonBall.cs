@@ -22,6 +22,8 @@ public class CannonBall : MonoBehaviour {
 			GameObject splashParticles = (GameObject) Instantiate(splashEffect, 
                                transform.position,  Quaternion.Euler(new Vector3(90, 0, 0)));
 			splashParticles.transform.localScale = new Vector3(2,2,2);
+			// Destroy this cannon ball 
+			Destroy(this.gameObject);
 		}
 		
 	}

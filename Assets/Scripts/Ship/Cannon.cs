@@ -68,8 +68,5 @@ public class Cannon : MonoBehaviour
         Rigidbody cannonBallClone = (Rigidbody) Instantiate(cannonBall, 
                                transform.TransformPoint(new Vector3(0,1,6)), transform.rotation);
         cannonBallClone.velocity = transform.forward * cannonBallFireSpeed;
-        // After 6sec destroy the cannonball
-        yield return new WaitForSeconds(6);
-        Destroy(cannonBallClone.gameObject);
     }
 }
