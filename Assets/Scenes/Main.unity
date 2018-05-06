@@ -5659,6 +5659,7 @@ GameObject:
   - component: {fileID: 916639234}
   - component: {fileID: 916639236}
   - component: {fileID: 916639235}
+  - component: {fileID: 916639237}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: MYSHIP_COLLIDER
@@ -5698,6 +5699,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 916639233}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &916639237
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 916639233}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1, y: 1.1, z: 1.1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &933406924
 Prefab:
   m_ObjectHideFlags: 0
@@ -6165,6 +6178,7 @@ GameObject:
   - component: {fileID: 1057441965}
   - component: {fileID: 1057441967}
   - component: {fileID: 1057441966}
+  - component: {fileID: 1057441968}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: MYSHIP_COLLIDER
@@ -6204,6 +6218,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1057441964}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &1057441968
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1057441964}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1, y: 1.1, z: 1.1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1068568817
 Prefab:
   m_ObjectHideFlags: 0
@@ -6803,6 +6829,7 @@ GameObject:
   - component: {fileID: 1258739463}
   - component: {fileID: 1258739465}
   - component: {fileID: 1258739464}
+  - component: {fileID: 1258739466}
   m_Layer: 0
   m_Name: Cube (3)
   m_TagString: MYSHIP_COLLIDER
@@ -6842,6 +6869,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1258739462}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &1258739466
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1258739462}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1, y: 1.1, z: 1.1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1259312311
 GameObject:
   m_ObjectHideFlags: 0
@@ -8152,6 +8191,7 @@ GameObject:
   - component: {fileID: 1461383333}
   - component: {fileID: 1461383335}
   - component: {fileID: 1461383334}
+  - component: {fileID: 1461383336}
   m_Layer: 0
   m_Name: Cube
   m_TagString: MYSHIP_COLLIDER
@@ -8191,6 +8231,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1461383332}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &1461383336
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1461383332}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1, y: 1.1, z: 1.1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1463648629
 Prefab:
   m_ObjectHideFlags: 0
