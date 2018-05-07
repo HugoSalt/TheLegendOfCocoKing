@@ -12,12 +12,14 @@ public class Tower : MonoBehaviour {
 	public GameObject CannonToDestroy6;
 	public GameObject CannonToDestroy7;
 	public GameObject CannonToDestroy8;
+
+	public int health;
 	
 	// Use this for initialization
 	void Start () {
 		// All children to kinematic
 		foreach (Transform child in transform)
-             child.GetComponent<Rigidbody>().isKinematic = true;
+            if (child.GetComponent<Rigidbody>()) child.GetComponent<Rigidbody>().isKinematic = true;
 	}
 	
 	// Update is called once per frame
@@ -25,7 +27,7 @@ public class Tower : MonoBehaviour {
 		
 	}
 
-	private void Destroy(){
+	private void DestroyTower(){
 		// Destroy enemy cannons gameobjects
 		Destroy(CannonToDestroy1);
 		Destroy(CannonToDestroy2);
@@ -36,15 +38,15 @@ public class Tower : MonoBehaviour {
 		Destroy(CannonToDestroy7);
 		Destroy(CannonToDestroy8);
 		// Play FX
-		transform.Find("CFX2_RockHit").GetComponent<ParticleSystem>().Play();
-		transform.Find("CFX2_RockHit (1)").GetComponent<ParticleSystem>().Play();
-		transform.Find("CFX2_RockHit (2)").GetComponent<ParticleSystem>().Play();
-		transform.Find("CFX2_RockHit (3)").GetComponent<ParticleSystem>().Play();
-		transform.Find("CFX2_RockHit (4)").GetComponent<ParticleSystem>().Play();
-		transform.Find("CFX2_RockHit (5)").GetComponent<ParticleSystem>().Play();
-		transform.Find("CFX2_RockHit (6)").GetComponent<ParticleSystem>().Play();
+		foreach (Transform child in transform.Find("FX")) child.GetComponent<ParticleSystem>().Play();
 		// Collapse the tower
 		foreach (Transform child in transform)
              child.GetComponent<Rigidbody>().isKinematic = false;
 	}
+
+	public void takeDamage(){
+		health -= 1;
+		if (health == 0) DestroyTower();
+	}
+
 }

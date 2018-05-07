@@ -16,7 +16,7 @@ public class CannonBall : MonoBehaviour {
 		splashSound = GetComponents<AudioSource>()[0];
 		hitShipSound = GetComponents<AudioSource>()[1];
 		otherCollisionsSound = GetComponents<AudioSource>()[2];
-		whiteSmoke = transform.Find("White Smoke").GetComponent<ParticleSystem>();
+		if (transform.Find("White Smoke")) whiteSmoke = transform.Find("White Smoke").GetComponent<ParticleSystem>();
 	}
 	
 	// Update is called once per frame
@@ -47,7 +47,7 @@ public class CannonBall : MonoBehaviour {
 			otherCollisionsSound.Play();
 		}
 		// No smoke in water
-		whiteSmoke.Stop();
+		if (whiteSmoke) whiteSmoke.Stop();
 		// Destroy this cannon ball after a few seconds to let the sounds finish playing
 		StartCoroutine(selfDestroy());
 	}
