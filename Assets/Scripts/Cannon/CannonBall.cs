@@ -11,10 +11,12 @@ public class CannonBall : MonoBehaviour {
 	private AudioSource splashSound;
 	private AudioSource hitShipSound;
 	private AudioSource otherCollisionsSound;
+	private ParticleSystem whiteSmoke;
 	void Start () {
 		splashSound = GetComponents<AudioSource>()[0];
 		hitShipSound = GetComponents<AudioSource>()[1];
 		otherCollisionsSound = GetComponents<AudioSource>()[2];
+		whiteSmoke = transform.Find("White Smoke").GetComponent<ParticleSystem>();
 	}
 	
 	// Update is called once per frame
@@ -44,6 +46,8 @@ public class CannonBall : MonoBehaviour {
 			otherCollisionsParticles.transform.localScale = new Vector3(2,2,2);
 			otherCollisionsSound.Play();
 		}
+		// No smoke in water
+		whiteSmoke.Stop();
 		// Destroy this cannon ball after a few seconds to let the sounds finish playing
 		StartCoroutine(selfDestroy());
 	}
