@@ -19,7 +19,7 @@ public class TowerDamageTrigger : MonoBehaviour {
 
 		if (other.gameObject.tag == "DEADLY_COLLIDER"){
 
-			towerScript.takeDamage();
+			towerScript.TakeDamage();
 
 		}
 		

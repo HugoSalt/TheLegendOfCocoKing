@@ -46,7 +46,8 @@ public class Ship : MonoBehaviour {
 		health -= 1;
 		if (health == 0) DestroyShip();
 		foreach (Transform child in transform.Find("CollisionFX"))
-			child.GetComponent<ParticleSystem>().Play();	
+			child.GetComponent<ParticleSystem>().Play();
+		GetComponents<AudioSource>()[1].Play();	
 	}
 
 	private void DestroyShip() {
