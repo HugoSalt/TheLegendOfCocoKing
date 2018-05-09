@@ -16,7 +16,7 @@ public class CannonBall : MonoBehaviour {
 		splashSound = GetComponents<AudioSource>()[0];
 		hitShipSound = GetComponents<AudioSource>()[1];
 		otherCollisionsSound = GetComponents<AudioSource>()[2];
-		if (transform.Find("White Smoke")) whiteSmoke = transform.Find("White Smoke").GetComponent<ParticleSystem>();
+		whiteSmoke = transform.Find("WhiteSmoke").GetComponent<ParticleSystem>();
 	}
 	
 	// Update is called once per frame
@@ -27,6 +27,8 @@ public class CannonBall : MonoBehaviour {
 	private void OnTriggerEnter(Collider other) {
 
 		if (other.gameObject.tag == "OCEAN_COLLIDER"){
+			// No smoke in water
+			whiteSmoke.Stop();
 			// Emit a "splash" particle effect
 			GameObject splashParticles = (GameObject) Instantiate(splashEffect, 
                                transform.position,  Quaternion.Euler(new Vector3(90, 0, 0)));
@@ -40,14 +42,12 @@ public class CannonBall : MonoBehaviour {
 			hitShipParticles.transform.localScale = new Vector3(2,2,2);
 			hitShipSound.Play();
 		}
-		else {
+		else if (other.gameObject.tag != "DETECT_AREA") {
 			GameObject otherCollisionsParticles = (GameObject) Instantiate(otherCollisionsEffect, 
                                transform.position,  Quaternion.Euler(new Vector3(90, 0, 0)));
 			otherCollisionsParticles.transform.localScale = new Vector3(2,2,2);
 			otherCollisionsSound.Play();
 		}
-		// No smoke in water
-		if (whiteSmoke) whiteSmoke.Stop();
 		// Destroy this cannon ball after a few seconds to let the sounds finish playing
 		StartCoroutine(selfDestroy());
 	}

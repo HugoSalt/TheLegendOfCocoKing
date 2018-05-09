@@ -12,7 +12,9 @@ public class Tower : MonoBehaviour {
 	public GameObject CannonToDestroy6;
 	public GameObject CannonToDestroy7;
 	public GameObject CannonToDestroy8;
-
+	public GameObject ColliderToDestroy1;
+	public GameObject ColliderToDestroy2;
+	public GameObject ColliderToDestroy3;
 	public int health;
 	
 	// Use this for initialization
@@ -28,6 +30,12 @@ public class Tower : MonoBehaviour {
 	}
 
 	private void DestroyTower(){
+		// Play FX
+		foreach (Transform child in transform.Find("FX"))
+			child.GetComponent<ParticleSystem>().Play();
+		// Collapse the tower
+		foreach (Transform child in transform)
+            if (child.GetComponent<Rigidbody>()) child.GetComponent<Rigidbody>().isKinematic = false;
 		// Destroy enemy cannons gameobjects
 		Destroy(CannonToDestroy1);
 		Destroy(CannonToDestroy2);
@@ -37,11 +45,9 @@ public class Tower : MonoBehaviour {
 		Destroy(CannonToDestroy6);
 		Destroy(CannonToDestroy7);
 		Destroy(CannonToDestroy8);
-		// Play FX
-		foreach (Transform child in transform.Find("FX")) child.GetComponent<ParticleSystem>().Play();
-		// Collapse the tower
-		foreach (Transform child in transform)
-             child.GetComponent<Rigidbody>().isKinematic = false;
+		Destroy(ColliderToDestroy1);
+		Destroy(ColliderToDestroy2);
+		Destroy(ColliderToDestroy3);
 	}
 
 	public void takeDamage(){

@@ -8,6 +8,8 @@ TagManager:
   - DEADLY_COLLIDER
   - OCEAN_COLLIDER
   - MYSHIP_COLLIDER
+  - FxTemporaire
+  - DETECT_AREA
   layers:
   - Default
   - TransparentFX

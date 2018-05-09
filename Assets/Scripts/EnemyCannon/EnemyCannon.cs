@@ -5,7 +5,8 @@ using UnityEngine;
 public class EnemyCannon : MonoBehaviour {
 	public Rigidbody cannonBall;
 	public float targetInfluenceStrength;
-	public float cannonBallFireSpeed;
+	public int cannonBallMaxSpeed;
+	public int cannonBallMinSpeed;
 	public float reloadTime;
 	private float lastFireTime;
 	private ParticleSystem cannonFireParticles;
@@ -36,8 +37,10 @@ public class EnemyCannon : MonoBehaviour {
 			Vector3 cannonPosition = transform.Find("Cannon Fire").transform.position;
 			Rigidbody cannonBallClone = (Rigidbody) Instantiate(cannonBall, 
                                cannonPosition, transform.rotation);
-			Vector3 targetInfluence = targetPos -transform.position;
-        	cannonBallClone.velocity = (transform.forward * cannonBallFireSpeed) + (targetInfluence * targetInfluenceStrength) ;
+			Vector3 targetInfluence = (targetPos - transform.position).normalized;
+			int cannonBallSpeed = Random.Range(cannonBallMinSpeed,cannonBallMaxSpeed);
+			print(cannonBallSpeed);
+        	cannonBallClone.velocity = (transform.forward * cannonBallSpeed) + (targetInfluence * targetInfluenceStrength) ;
 		}
 	}
 

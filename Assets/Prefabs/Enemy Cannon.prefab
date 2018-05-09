@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 114537926889677130}
   m_Layer: 0
   m_Name: Detect Area
-  m_TagString: Untagged
+  m_TagString: DETECT_AREA
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -190,8 +190,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1475799548826454}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -7.23, z: 9.77}
-  m_LocalScale: {x: 6.6429124, y: 2.246194, z: 17.498383}
+  m_LocalPosition: {x: -0.14, y: -7.23, z: 27.81}
+  m_LocalScale: {x: 12.530846, y: 2.2461934, z: 53.573895}
   m_Children: []
   m_Father: {fileID: 4758150388049050}
   m_RootOrder: 2
@@ -299,8 +299,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1689186362944582}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -75.376, y: 7.684, z: -18.04}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 80.454, y: 50.64103, z: 12.889999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4230933857381844}
@@ -495,9 +495,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cannonBall: {fileID: 54552297263160440, guid: 885fe26dc60eedb41a5dd2bf19f54069,
     type: 2}
-  targetInfluenceStrength: 2
-  cannonBallFireSpeed: 30
-  reloadTime: 5
+  targetInfluenceStrength: 5
+  cannonBallMaxSpeed: 35
+  cannonBallMinSpeed: 1
+  reloadTime: 2
 --- !u!198 &198083122166085876
 ParticleSystem:
   m_ObjectHideFlags: 1
