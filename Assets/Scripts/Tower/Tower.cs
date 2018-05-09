@@ -29,7 +29,7 @@ public class Tower : MonoBehaviour {
 		
 	}
 
-	private void DestroyTower(){
+	private void DestroyTower() {
 		// Play FX
 		foreach (Transform child in transform.Find("FX"))
 			child.GetComponent<ParticleSystem>().Play();
@@ -50,7 +50,7 @@ public class Tower : MonoBehaviour {
 		Destroy(ColliderToDestroy3);
 	}
 
-	public void takeDamage(){
+	public void TakeDamage() {
 		health -= 1;
 		if (health == 0) DestroyTower();
 	}
