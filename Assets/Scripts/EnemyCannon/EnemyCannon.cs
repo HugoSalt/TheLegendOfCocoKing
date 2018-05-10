@@ -39,7 +39,6 @@ public class EnemyCannon : MonoBehaviour {
                                cannonPosition, transform.rotation);
 			Vector3 targetInfluence = (targetPos - transform.position).normalized;
 			int cannonBallSpeed = Random.Range(cannonBallMinSpeed,cannonBallMaxSpeed);
-			print(cannonBallSpeed);
         	cannonBallClone.velocity = (transform.forward * cannonBallSpeed) + (targetInfluence * targetInfluenceStrength) ;
 		}
 	}

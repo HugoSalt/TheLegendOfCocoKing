@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class TutorialText : MonoBehaviour {
 
-	private TextMesh textMesh;
+	private Shader textShader;
 	private float alpha;
 	public float timer;
+	private Renderer rend;
 
 	void Start () {
-		textMesh = GetComponent<TextMesh>();
+		textShader = GetComponent<Shader>();
+		rend = GetComponent<Renderer>();
+		alpha = 1.0f;
 	}
 
 	// Update is called once per frame
@@ -17,7 +20,10 @@ public class TutorialText : MonoBehaviour {
 
 		timer -= Time.deltaTime;
 		if(timer < 0) {
-			textMesh.color = new Color(1, 1, 1, alpha);
+
+			//Set the main Color of the Material to green
+        	rend.material.SetColor("_Color", new Color(1, 1, 1, alpha));
+
 			alpha -= 0.01f;
 		}
 		
