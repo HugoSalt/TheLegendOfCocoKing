@@ -5,11 +5,14 @@ using UnityEngine;
 public class BombHandle : MonoBehaviour {
 
 	private Bomb bombScript;
+    private bool startedGrabbing;
 
 	// Use this for initialization
 	void Start () {
 		bombScript = transform.parent.GetComponent<Bomb>();
-	}
+        startedGrabbing = false;
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -24,10 +27,12 @@ public class BombHandle : MonoBehaviour {
 			Quaternion currentGrabRot =  other.gameObject.transform.rotation;
 
 			if (other.gameObject.GetComponent<HandInteractor>().IsGrabbing()) {
-				bombScript.MoveBomb(currentGrabPos, currentGrabRot);
-			} else {
-				bombScript.ReleaseBomb(currentGrabPos, currentGrabRot);
-			}
+				bombScript.MoveBomb(currentGrabPos, currentGrabRot, other.gameObject);
+                startedGrabbing = true;
+            } else if (startedGrabbing) {
+				bombScript.ReleaseBomb(currentGrabPos, currentGrabRot, other.gameObject);
+                startedGrabbing = false;
+            }
 
 		}
 		
