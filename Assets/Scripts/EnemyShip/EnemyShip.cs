@@ -21,7 +21,7 @@ public class EnemyShip : MonoBehaviour
     public EnemyShip() {
         numPoints = 1000;
         resolution = 5000;
-        speed = 2f;
+        speed = 1.5f;
         positions_raw = new Vector3[numPoints];
         positions = new Vector3[resolution];
     }
@@ -86,8 +86,15 @@ public class EnemyShip : MonoBehaviour
 	private void DestroyShip() {
 		isSinking = true;
 		foreach (Transform child in transform.Find("SinkingFX"))
-			child.GetComponent<ParticleSystem>().Play();	
+			child.GetComponent<ParticleSystem>().Play();
+        StartCoroutine(destroyShipObject());
 	}
+
+    IEnumerator destroyShipObject()
+    {
+        yield return new WaitForSeconds(25);
+        Destroy(this.gameObject);
+    }
 
     private void drawCurve()
     {
