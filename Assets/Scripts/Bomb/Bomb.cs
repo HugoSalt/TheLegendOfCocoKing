@@ -19,6 +19,9 @@ public class Bomb : MonoBehaviour {
     private Quaternion lastAngle;
     private float timerValue;
 
+    private AudioSource explosionSound;
+    private AudioSource wickSound;
+
     // Use this for initialization
     void Start () {
 		bombRigidBody = GetComponent<Rigidbody>();
@@ -27,7 +30,10 @@ public class Bomb : MonoBehaviour {
 		deadlyArea = transform.Find("Deadly Area").gameObject;
 		wickTrigger = transform.Find("Wick Trigger").gameObject;
 
-		wickTrigger.SetActive(false);
+        explosionSound = GetComponents<AudioSource>()[0];
+        wickSound = GetComponents<AudioSource>()[1];
+
+        wickTrigger.SetActive(false);
 		deadlyArea.SetActive(false);
 
         lastPosition = transform.position;
@@ -86,8 +92,9 @@ public class Bomb : MonoBehaviour {
 	public void Fire(){
 		// Start wick particles animation
 		wickFireParticles.Play();
-		// In 6 sec, explode
-		StartCoroutine(timer());
+        wickSound.Play();
+        // In 6 sec, explode
+        StartCoroutine(timer());
 	}
 
 	 IEnumerator timer(){
@@ -97,7 +104,9 @@ public class Bomb : MonoBehaviour {
 
 	 public void Explode(){
 		explosionParticles.Play();
-		deadlyArea.SetActive(true);
+        explosionSound.Play();
+        wickSound.Stop();
+        deadlyArea.SetActive(true);
 		StartCoroutine(selfDestroy());
 	 }
 
@@ -111,4 +120,12 @@ public class Bomb : MonoBehaviour {
         yield return new WaitForSeconds(2);
 		Destroy(this.gameObject);
 	}
-}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "ENEMY_COLLIDER")
+        {
+            Explode();
+        }
+    }
+    }

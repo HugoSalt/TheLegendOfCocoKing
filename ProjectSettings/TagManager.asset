@@ -10,6 +10,7 @@ TagManager:
   - MYSHIP_COLLIDER
   - FxTemporaire
   - DETECT_AREA
+  - ENEMY_COLLIDER
   layers:
   - Default
   - TransparentFX

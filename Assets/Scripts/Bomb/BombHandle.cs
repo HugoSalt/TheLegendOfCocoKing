@@ -37,4 +37,16 @@ public class BombHandle : MonoBehaviour {
 		}
 		
 	}
-}
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "HAND_INTERACTOR")
+        {
+            Vector3 currentGrabPos = other.gameObject.transform.position;
+            Quaternion currentGrabRot = other.gameObject.transform.rotation;
+            bombScript.ReleaseBomb(currentGrabPos, currentGrabRot, other.gameObject);
+            startedGrabbing = false;
+        }
+    }
+
+    }

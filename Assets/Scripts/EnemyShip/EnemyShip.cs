@@ -10,18 +10,17 @@ public class EnemyShip : MonoBehaviour
     int numPoints;
     int resolution;
     float totalDistance;
-    float speed;
     Vector3[] positions_raw;
     Vector3[] positions;
 
     public float health;
 	private bool isSinking;
+    public float speed;
 
     
     public EnemyShip() {
         numPoints = 1000;
         resolution = 5000;
-        speed = 1.5f;
         positions_raw = new Vector3[numPoints];
         positions = new Vector3[resolution];
     }
@@ -33,7 +32,7 @@ public class EnemyShip : MonoBehaviour
         lineRenderer.positionCount = numPoints;
         float baseTime = Time.realtimeSinceStartup;
         drawCurve();
-        print(Time.realtimeSinceStartup - baseTime);
+        //print(Time.realtimeSinceStartup - baseTime);
         if (playMode) {
             transform.Find("BezierPoints").gameObject.SetActive(false);
             lineRenderer.enabled = false;
@@ -77,7 +76,6 @@ public class EnemyShip : MonoBehaviour
 
     public void TakeDamage() {
 		health -= 1;
-        print(health);
 		if (health == 0) DestroyShip();
 		foreach (Transform child in transform.Find("CollisionFX"))
 			child.GetComponent<ParticleSystem>().Play();
