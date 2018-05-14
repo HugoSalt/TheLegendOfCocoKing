@@ -6,12 +6,19 @@ public class Ship : MonoBehaviour {
 
 	private Rigidbody shipRigidBody;
 	public float forwardForce;
+
+	// Defines how the oscillate when moving
 	public float oscillationAmp;
 	public float oscillationFreq;
 	private Rigidbody wheelRigidBody;
 	public float turnMultiplier;
 	public float health;
 	private bool isSinking;
+
+	// 
+	public float automaticVelocity;
+	public float collisionIntensity;
+
 	public 
 
 	// Use this for initialization
@@ -54,6 +61,14 @@ public class Ship : MonoBehaviour {
 		isSinking = true;
 		foreach (Transform child in transform.Find("SinkingFX"))
 			child.GetComponent<ParticleSystem>().Play();		
+	}
+
+	public void AvoidEdgeLimit() {
+		shipRigidBody.AddTorque(automaticVelocity * turnMultiplier * transform.up);
+	}
+
+	public void MoveBackwards() {
+		shipRigidBody.AddForce(-forwardForce * transform.forward * collisionIntensity);
 	}
 
 
