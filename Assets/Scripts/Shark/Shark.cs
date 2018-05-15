@@ -15,7 +15,7 @@ public class Shark : MonoBehaviour
     Vector3[] positions;
 
     public float health;
-	private bool isSinking;
+	private bool isSinking; 
     public float speed;
 
     public float sinkingSpeed;
@@ -65,6 +65,7 @@ public class Shark : MonoBehaviour
         if (playMode)
         {
             if (isSinking) {
+                print("hello");
                 transform.Translate(- Vector3.up * sinkingSpeed);
             }
             else {

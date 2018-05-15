@@ -19,6 +19,7 @@ public class SharkDamageCollider : MonoBehaviour {
 	private void OnTriggerEnter(Collider other) {
 		if (other.gameObject.tag == "DEADLY_COLLIDER") {
 			sharkScript.TakeDamage();
+			print("collision");
 		}	
 	}
 }
