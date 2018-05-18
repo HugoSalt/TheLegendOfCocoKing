@@ -16,6 +16,8 @@ public class Harpoon : MonoBehaviour
     private Quaternion lastAngle;
     private float timerValue;
 
+    public Camera cameraRig;
+
     // Use this for initialization
     void Start()
     {
@@ -54,6 +56,7 @@ public class Harpoon : MonoBehaviour
         {
             fixedJoint = this.gameObject.AddComponent<FixedJoint>();
             fixedJoint.connectedBody = HandInteractor.GetComponent<Rigidbody>();
+            transform.rotation = Quaternion.Euler(transform.eulerAngles.x, cameraRig.transform.eulerAngles.y, transform.eulerAngles.z);
         }
     }
 
