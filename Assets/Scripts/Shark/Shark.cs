@@ -65,7 +65,6 @@ public class Shark : MonoBehaviour
         if (playMode)
         {
             if (isSinking) {
-                print("hello");
                 transform.Translate(- Vector3.up * sinkingSpeed);
             }
             else {

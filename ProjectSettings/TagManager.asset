@@ -11,6 +11,8 @@ TagManager:
   - FxTemporaire
   - DETECT_AREA
   - ENEMY_COLLIDER
+  - EDGE_COLLIDER
+  - HARPOON_COLLIDER
   layers:
   - Default
   - TransparentFX

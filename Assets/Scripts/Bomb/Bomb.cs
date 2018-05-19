@@ -22,6 +22,13 @@ public class Bomb : MonoBehaviour {
     private AudioSource explosionSound;
     private AudioSource wickSound;
 
+    private Vector3[] lastPos; // contains all the previous positions of the bombs, a few milliseconds before the current time
+    public int lastPosSize;
+    private int firstPositionIndex; // the index of lastPos where the oldest position is stored
+    public float frequencyPosSample; // how much time between position sample
+    private float lastSampleTime; // record the time where the last position sample was done
+    //private float firstSampleTime; // record the time where the oldest position sample was done
+
     // Use this for initialization
     void Start () {
 		bombRigidBody = GetComponent<Rigidbody>();
@@ -36,17 +43,35 @@ public class Bomb : MonoBehaviour {
         wickTrigger.SetActive(false);
 		deadlyArea.SetActive(false);
 
-        lastPosition = transform.position;
-        lastAngle = transform.rotation;
+        /*lastPosition = transform.position;
+        lastAngle = transform.rotation;*/
+
+        lastPos = new Vector3[lastPosSize];
+        firstPositionIndex = 0;
+        lastSampleTime = Time.time;
     }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if (Time.time - timerValue > 0.02f)
+		/*if (Time.time - timerValue > 0.02f)
          {
             timerValue = Time.time;
             lastPosition = transform.position;
             lastAngle = transform.rotation;
+        }*/
+
+        if (Time.time - lastSampleTime > frequencyPosSample)
+        {
+            lastSampleTime = Time.time;
+            // We erase the oldest position by the current position
+            lastPos[firstPositionIndex] = transform.position;
+            // We set the oldest position index to the oldest position among the remaining ones
+            firstPositionIndex += 1;
+            if (firstPositionIndex >= lastPosSize)
+            {
+                firstPositionIndex = 0;
+            }
+            lastPos[firstPositionIndex] = transform.position;
         }
 	}
 
@@ -81,7 +106,7 @@ public class Bomb : MonoBehaviour {
         // Set object to rigidbody
         //bombRigidBody.isKinematic = false;
         Destroy(fixedJoint);
-        Vector3 lastPosSpeed = transform.position - lastPosition;
+        Vector3 lastPosSpeed = transform.position - lastPos[firstPositionIndex];
         //Quaternion lastAngleSpeed = transform.rotation - lastAngle;
         bombRigidBody.AddForce(throwForceMultiplier * lastPosSpeed);
         //bombRigidBody.AddTorque(lastAngSpeed * throwForceMultiplier);

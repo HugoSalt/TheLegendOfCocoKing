@@ -347,7 +347,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1900092556772972}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.44, y: 0.283, z: -4.466}
+  m_LocalPosition: {x: 1.3799973, y: 0.809, z: -4.607}
   m_LocalScale: {x: 0.14999999, y: 0.14999999, z: 0.14999999}
   m_Children:
   - {fileID: 4885197985962496}
@@ -821,6 +821,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throwForceMultiplier: 5000
+  lastPosSize: 8
+  frequencyPosSample: 0
 --- !u!135 &135050812114037072
 SphereCollider:
   m_ObjectHideFlags: 1

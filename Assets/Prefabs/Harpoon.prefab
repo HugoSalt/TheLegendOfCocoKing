@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 65213006084292202}
   m_Layer: 0
   m_Name: Harpoon
-  m_TagString: Untagged
+  m_TagString: HARPOON_COLLIDER
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,15 +83,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1509731608898322}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 124.51755, y: 0.485, z: 125.25909}
+  m_LocalRotation: {x: -0.122787856, y: 0.6963643, z: 0.122787856, w: 0.6963643}
+  m_LocalPosition: {x: 1.417, y: 0.235, z: -2.959}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4194490824467452}
   - {fileID: 4909857704235578}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -20, y: 90, z: 0}
 --- !u!4 &4909857704235578
 Transform:
   m_ObjectHideFlags: 1
@@ -100,7 +100,7 @@ Transform:
   m_GameObject: {fileID: 1321376697304138}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.049, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.059337404, z: 1.5}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 1.5}
   m_Children: []
   m_Father: {fileID: 4431826155452598}
   m_RootOrder: 1
@@ -179,7 +179,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.11162567, y: 0.027392626, z: 1.5}
+  m_Size: {x: 0.11162567, y: 0.05, z: 1.5}
   m_Center: {x: -0.0024223328, y: 0.051406205, z: 0}
 --- !u!65 &65852722890192326
 BoxCollider:
@@ -215,4 +215,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d962d091372c89747b847fb7b626c095, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwForceMultiplier: 0
+  throwForceMultiplier: 5000
+  lastPosSize: 8
+  frequencyPosSample: 0
