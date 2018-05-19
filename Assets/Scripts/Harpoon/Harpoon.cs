@@ -24,7 +24,8 @@ public class Harpoon : MonoBehaviour
     public float frequencyPosSample; // how much time between position sample
     private float lastSampleTime; // record the time where the last position sample was done
     //private float firstSampleTime; // record the time where the oldest position sample was done
-    private bool isThwown;
+    private bool isThrown;
+    public float forceToConsiderThrow;
 
     // Use this for initialization
     void Start()
@@ -34,13 +35,13 @@ public class Harpoon : MonoBehaviour
         lastPos = new Vector3[lastPosSize];
         firstPositionIndex = 0;
         lastSampleTime = Time.time;
-        isThwown = false;
+        isThrown = false;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (isThwown)
+        if (isThrown)
         {
             int lastIndex = firstPositionIndex - 1;
             if (lastIndex < 0)
@@ -88,7 +89,6 @@ public class Harpoon : MonoBehaviour
 
     public void ReleaseHarpoon(Vector3 grabPosition, Quaternion grabRotation, GameObject HandInteractor)
     {
-        isThwown = true;
         // Re-Activate rigid body when releasing it
         //GetComponent<Collider>().enabled = true;
         // Disable wick trigger to avoid accidental bomb trigering
@@ -99,6 +99,14 @@ public class Harpoon : MonoBehaviour
         //Quaternion lastAngleSpeed = transform.rotation - lastAngle;
         harpoonRigidBody.AddForce(throwForceMultiplier * lastPosSpeed);
         //bombRigidBody.AddTorque(lastAngSpeed * throwForceMultiplier);
+        if (lastPosSpeed.magnitude > forceToConsiderThrow)
+        {
+            isThrown = true;
+        }
+        else
+        {
+            isThrown = false;
+        }
 
 
     }
@@ -120,7 +128,7 @@ public class Harpoon : MonoBehaviour
     {
         if (other.gameObject.tag == "MYSHIP_COLLIDER")
         {
-            isThwown = false;
+            isThrown = false;
         }
     }
 }
